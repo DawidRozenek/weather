@@ -1,0 +1,22 @@
+.weather-current__header {
+  margin-bottom: 2rem;
+}
+
+.weather-current__additional-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-current__additional-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &:last-of-type {
+    margin: 0
+  }
+}
+
+.weather-current__additional-info-item-icon {
+  margin-right: 1rem;
+}

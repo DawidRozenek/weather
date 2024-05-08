@@ -5,14 +5,14 @@ interface Location {
   longitude: number;
 }
 
-interface CurrentWeather {
+export interface CurrentWeather {
   temperature: number;
   weather: string;
   humidity: number;
   wind_speed: number;
 }
 
-interface DailyForecast {
+export interface DailyForecast {
   date: string;
   temperature: {
     min: number;
@@ -35,6 +35,6 @@ export enum WeatherType {
 }
 
 export enum TemperatureUnit {
-  Celcius = 'Celcius',
+  Celsius = 'Celsius',
   Fahrenheit = 'Fahrenheit',
 }

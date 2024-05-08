@@ -1,0 +1,29 @@
+<div class="weather-current__header">
+  <app-weather-current-header [weather]="weather.current" [temperatureUnit]="userPreferences.temperatureUnit"></app-weather-current-header>
+</div>
+
+<div class="weather-current__additional-info">
+  <div class="weather-current__additional-info-item">
+    <span class="material-symbols-outlined weather-current__additional-info-item-icon">
+      pin_drop
+    </span>
+  
+    {{ weather.location.city }}, {{ weather.location.country }}
+  </div>
+
+  <div class="weather-current__additional-info-item">
+    <span class="material-symbols-outlined weather-current__additional-info-item-icon">
+      humidity_low
+    </span>
+  
+    {{ weather.current.humidity }}
+  </div>
+  
+  <div class="weather-current__additional-info-item">
+    <span class="material-symbols-outlined weather-current__additional-info-item-icon">
+      air
+    </span>
+  
+    {{ weather.current.wind_speed }}
+  </div>
+</div>

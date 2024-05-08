@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<div class="app__navbar">
+  <ul class="app__navbar-items">
+    <li class="app__navbar-item">
+      <a [routerLink]="'./weather'" routerLinkActive="app__navbar-item--active">Forecast</a>
+    </li>
+    <li class="app__navbar-item">
+      <a [routerLink]="'./profile'" routerLinkActive="app__navbar-item--active">Profile</a>
+    </li>
+  </ul>
+</div>
+
+<div class="app__content">
+  <router-outlet></router-outlet>
+</div>

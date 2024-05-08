@@ -9,7 +9,7 @@ import { DisplayMode, UserPreferences } from '../models/user';
 export class UserPreferencesService {
   private userPreferencesSubject$ = new BehaviorSubject<UserPreferences>({
     location: 'New York, USA',
-    temperatureUnit: TemperatureUnit.Celcius,
+    temperatureUnit: TemperatureUnit.Celsius,
     displayMode: DisplayMode.Dark,
   });
 

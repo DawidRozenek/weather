@@ -1,0 +1,17 @@
+.weather-icon {
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+
+  &--sunny {
+    color: rgb(234, 236, 77);
+  }
+
+  &--cloudy {
+    color: rgb(126, 125, 125);
+  }
+
+  &--rainy {
+    color: rgb(69, 126, 231);
+  }
+}

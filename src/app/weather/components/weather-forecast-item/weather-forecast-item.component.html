@@ -1,0 +1,7 @@
+<div class="weather-forecast-item">
+  <p>{{ forecast.date | date }}</p>
+  <app-weather-icon [weatherType]="forecast.weather"></app-weather-icon>
+  <div class="weather-item__temperature">
+    {{ temperatureUnit === TemperatureUnit.Celsius ? forecast.temperature.min + '°C' : (forecast.temperature.min | celsiusToFahrenheit) + '°F' }} -
+    {{ temperatureUnit === TemperatureUnit.Celsius ? forecast.temperature.max + '°C' : (forecast.temperature.max | celsiusToFahrenheit) + '°F' }}</div>
+</div>

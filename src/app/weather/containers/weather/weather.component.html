@@ -1,3 +1,13 @@
 <ng-container *ngIf="weather$ | async as weather">
-    <app-weather-list [weather]="weather"></app-weather-list>
+  <ng-container *ngIf="userPreferences$ | async as userPreferences">
+    <div class="weather">
+      <div class="weather__current">
+        <app-weather-current [weather]="weather" [userPreferences]="userPreferences"></app-weather-current>
+      </div>
+  
+      <div class="weather__forecast">
+        <app-weather-forecast [forecast]="weather.forecast" [userPreferences]="userPreferences"></app-weather-forecast>
+      </div>
+    </div>
+  </ng-container>
 </ng-container>

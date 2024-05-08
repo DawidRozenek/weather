@@ -1,0 +1,7 @@
+<h2 class="weather-forecast__title">Forecast</h2>
+
+<div class="weather-forecast">
+  <ng-container *ngFor="let item of forecast">
+    <app-weather-forecast-item [forecast]="item" [temperatureUnit]="userPreferences.temperatureUnit"></app-weather-forecast-item>
+  </ng-container>
+</div>

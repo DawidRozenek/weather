@@ -1,0 +1,5 @@
+<ng-container [ngSwitch]="weatherType">
+  <mat-icon class="weather-icon weather-icon--cloudy" *ngSwitchCase="WeatherType.Cloudy">cloudy</mat-icon>
+  <mat-icon class="weather-icon weather-icon--sunny" *ngSwitchCase="WeatherType.Sunny">sunny</mat-icon>
+  <mat-icon class="weather-icon weather-icon--rainy" *ngSwitchCase="WeatherType.Rainy">rainy</mat-icon>
+</ng-container>

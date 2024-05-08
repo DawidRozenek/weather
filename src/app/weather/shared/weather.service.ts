@@ -7,7 +7,7 @@ import { WeatherRepository } from "./weather.repository";
 export class WeatherService {
   constructor(private weatherRepository: WeatherRepository) {}
 
-  getWeatherForecast(): Observable<Weather[]> {
+  getWeatherForecast(): Observable<Weather> {
     return this.weatherRepository.getWeatherForecast();
   }
 }

@@ -1,0 +1,4 @@
+<div class="weather-item__header">
+  <app-weather-icon [weatherType]="weather.weather"></app-weather-icon>
+  <div class="weather-item__temperature">{{ temperatureUnit === TemperatureUnit.Celsius ? weather.temperature + '°C' : (weather.temperature | celsiusToFahrenheit) + '°F' }}</div>
+</div>

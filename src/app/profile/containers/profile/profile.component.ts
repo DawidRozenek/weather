@@ -1,6 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { take, takeUntil } from 'rxjs';
 import { TemperatureUnit } from 'src/app/shared/models/weather';
 import { UserPreferencesService } from 'src/app/shared/services/user-preferences.service';
+import { Unsubscribe } from 'src/app/shared/utils/unsubscribe';
 
 @Component({
   selector: 'app-profile',
@@ -8,8 +11,23 @@ import { UserPreferencesService } from 'src/app/shared/services/user-preferences
   styleUrls: ['./profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileComponent {
-  constructor(private userPreferencesService: UserPreferencesService) {}
+export class ProfileComponent extends Unsubscribe implements OnInit {
+  units = Object.values(TemperatureUnit);
+  temperatureUnitControl = new FormControl();
+
+  constructor(private userPreferencesService: UserPreferencesService) {
+    super();
+  }
+
+  ngOnInit(): void {
+    this.userPreferencesService.userPreferences$
+      .pipe(take(1))
+      .subscribe(preferences => this.temperatureUnitControl.setValue(preferences.temperatureUnit));
+
+    this.temperatureUnitControl.valueChanges
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(val => this.setTemperatureUnit(val));
+  }
 
   setTemperatureUnit(unit: TemperatureUnit): void {
     this.userPreferencesService.updateUserPreferences({ temperatureUnit: unit });

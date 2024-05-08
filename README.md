@@ -1,27 +1,31 @@
-# WeatherApp
+## App Requirements
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+1. Create and share a public repository on GitHub, Bitbucket, etc.
 
-## Development server
+2. Push the final source code to the master branch.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+3. Create an Angular project using version 15+ and include all plugins that help you in your daily coding.
+ - I included angular materials
 
-## Code scaffolding
+4. Create an application with lazy loading modules.
+ - Profile and Weather are lazy-loaded modules
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+5. Create a simple communication layer between the application and the lazy loaded module.
+ - Communication layer between two lazy-loaded modules is thorugh userPreferencesService that is in /shared folder. It could be done in various ways f.ex store, but this solution is better for small apps 
 
-## Build
+6. Dynamically register additional routes inside the lazy loading module when it is initialized.
+ - Not sure about this point:
+  If it should be done in component after lazy-loaded module is initialized than it could be done like this:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ngOnInit(): void {
+    // Dynamically add additional route
+    const dynamicRoute: Route = { path: 'dynamic-route', loadChildren: () => import('./dynamic-route.module').then(m => m.DynamicRouteModule) };
+    this.router.config.push(dynamicRoute);
+   }
 
-## Running unit tests
+   Or maybe it is about dynamic routes such as :id or something? Unclear requirement for me.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   Description could be more detailed, because it's not clear what is expected to be done for me :)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+7. Pass some values through the communication layer to the lazy loaded component.
+ - Done through userPreferencesService

@@ -11,7 +11,7 @@ import { WeatherIconComponent } from './components/weather-icon/weather-icon.com
 import { WeatherCurrentComponent } from './components/weather-current/weather-current.component';
 import { WeatherCurrentHeaderComponent } from './components/weather-current-header/weather-current-header.component';
 import { WeatherForecastItemComponent } from './components/weather-forecast-item/weather-forecast-item.component';
-import { CelsiusToFahrenheitPipe } from '../shared/pipes/celcius-to-fahrenheits.pipe';
+import { TemperatureConverterPipe } from '../shared/pipes/temperature-converter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { CelsiusToFahrenheitPipe } from '../shared/pipes/celcius-to-fahrenheits.
     WeatherCurrentComponent,
     WeatherCurrentHeaderComponent,
     WeatherForecastItemComponent,
-    CelsiusToFahrenheitPipe,
+    TemperatureConverterPipe,
   ],
   imports: [
     CommonModule,

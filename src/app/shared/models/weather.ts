@@ -33,3 +33,8 @@ export enum WeatherType {
   PartlyCloudy = 'Partly Cloudy',
   Rainy = 'Rainy',
 }
+
+export enum TemperatureUnit {
+  Celcius = 'Celcius',
+  Fahrenheit = 'Fahrenheit',
+}

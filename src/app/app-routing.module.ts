@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./weather/weather.module').then(m => m.WeatherModule)
   },
   {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+  },
+  {
     path: '**',
     redirectTo: 'weather',
     pathMatch: 'full',

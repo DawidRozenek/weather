@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { WeatherService } from '../../shared/weather.service';
-import { Observable } from 'rxjs';
-import { Weather } from 'src/app/shared/models/weather';
+import { UserPreferencesService } from 'src/app/shared/services/user-preferences.service';
 
 @Component({
   selector: 'app-weather',
@@ -11,6 +10,10 @@ import { Weather } from 'src/app/shared/models/weather';
 })
 export class WeatherComponent {
   weather$ = this.weatherService.getWeatherForecast();
+  userPreferences$ = this.userPreferencesService.userPreferences$;
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(
+    private weatherService: WeatherService,
+    private userPreferencesService: UserPreferencesService,
+  ) {}
 }

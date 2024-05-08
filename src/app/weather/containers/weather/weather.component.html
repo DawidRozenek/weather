@@ -1,0 +1,3 @@
+<ng-container *ngIf="weather$ | async as weather">
+    <app-weather-list [weather]="weather"></app-weather-list>
+</ng-container>
